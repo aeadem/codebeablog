@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "NewPost";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+ <div class="content-wrapper"  ng-app="codeBlogMainApp" ng-controller="PostsController">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Add New Post
+            @*<small>Advanced form element</small>*@
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Posts</a></li>
+            <li class="active">New Post</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+     <section class="content">
+         <div class="row">
+             <div class="col-md-9" style="min-height:800px">
+
+                 <!-- /.box -->
+                 <div class="box box-primary">
+                     
+                     <!-- /.box-header -->
+                     <div class="box-body pad">
+                         <form>
+                             <div class="form-group">
+                                 @*       <label for="postTitle">Email address</label>*@
+                                 <input type="text" class="form-control" id="postTitle" placeholder="Enter title here" ng-model="newPost.title">
+                             </div>
+
+                             <div class="form-group">
+                                 <small style="color: #666;">   <strong>Permalink:</strong></small>
+                                 <a id="sample-permalink" href="http://codebea.com/?p=91&amp;preview=true" target="wp-preview-91">http://codebea.com/?p=91&amp;preview=true</a>
+                                 <span id="change-permalinks"><a href="options-permalink.php" class="button button-small" target="_blank">Change Permalinks</a></span>
+                             </div>
+
+ 
+                            
+
+                             <textarea class="textarea" id="postArticle" placeholder="Place some text here" 
+                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+             <div  class="col-md-3" style="float:right">
+
+                 <!-- /.box -->
+                 <div class="box box-warning">
+                     <div class="box-header">
+
+                         Publish
+                     </div>
+                     <!-- /.box-header -->
+                     <div class="box-body pad">
+                         <form>
+                             <div class="form-group">
+                                 @*       <label for="postTitle">Email address</label>*@
+                                 <button type="submit" class="btn btn-default  btn-sm">Save Draft</button>
+                                 <button type="submit" class="btn btn-default  btn-sm" style="float:right">Preview</button>
+                             </div>
+
+                             <div class="form-group">
+                                 <small>
+                                     <span>    Status: <strong> Draft      </strong>      <a href="#"> Edit</a>  </span>  <br />
+                                     <span> Visibility:<strong> Public  </strong>     <a href="#"> Edit</a>  </span> <br />
+                                     <span>Publish     <strong> immediately</strong> <a href="#"> Edit</a> </span> <br />
+                                 </small>  
+                             </div>
+                             <button type="submit" class="btn btn-info pull-right btn-sm" ng-click="saveNewPost(newPost)"
+                                      @*onclick="location.href='@Url.Action("SaveNewPost", "Admin")'"*@
+                                     >Publish</button>
+                          
+                         </form>
+                     </div>
+                 </div>
+             </div>
+             <div  class="col-md-3" style="float:right">
+
+                 <!-- /.box -->
+                 <div class="box box-info">
+                     <div class="box-header">
+
+                         Categories
+                     </div>
+                     <!-- /.box-header -->
+                     <div class="box-body pad">
+                         <form>
+                             <div class="form-group">
+                                 @*       <label for="postTitle">Email address</label>*@
+                                 <input type="text" class="form-control" id="postTitle" placeholder="Enter title here">
+                             </div>
+
+                             <div class="form-group">
+                                 <small style="color: #666;">   <strong>Permalink:</strong></small>
+                                 <a id="sample-permalink" href="http://codebea.com/?p=91&amp;preview=true" target="wp-preview-91">http://codebea.com/?p=91&amp;preview=true</a>
+                                 <span id="change-permalinks"><a href="options-permalink.php" class="button button-small" target="_blank">Change Permalinks</a></span>
+                             </div>
+
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+             <div  class="col-md-3" style="float:right">
+
+                 <!-- /.box -->
+                 <div class="box box-success">
+                     <div class="box-header">
+
+                         Tags
+                     </div>
+                     <!-- /.box-header -->
+                     <div class="box-body pad">
+                         <form>
+                             <div class="form-group">
+                                 @*       <label for="postTitle">Email address</label>*@
+                                 <input type="text" class="form-control" id="postTitle" placeholder="Enter title here">
+                             </div>
+
+                             <div class="form-group">
+                                 <small style="color: #666;">   <strong>Permalink:</strong></small>
+                                 <a id="sample-permalink" href="http://codebea.com/?p=91&amp;preview=true" target="wp-preview-91">http://codebea.com/?p=91&amp;preview=true</a>
+                                 <span id="change-permalinks"><a href="options-permalink.php" class="button button-small" target="_blank">Change Permalinks</a></span>
+                             </div>
+
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-3" style="float:right">
+
+                 <!-- /.box -->
+                 <div class="box">
+                     <div class="box-header">
+
+                         Featured Image
+                     </div>
+                     <!-- /.box-header -->
+                     <div class="box-body pad">
+                         <form>
+                             <div class="form-group">
+                                 @*       <label for="postTitle">Email address</label>*@
+                                 <input type="text" class="form-control" id="postTitle" placeholder="Enter title here">
+                             </div>
+
+                             <div class="form-group">
+                                 <small style="color: #666;">   <strong>Permalink:</strong></small>
+                                 <a id="sample-permalink" href="http://codebea.com/?p=91&amp;preview=true" target="wp-preview-91">http://codebea.com/?p=91&amp;preview=true</a>
+                                 <span id="change-permalinks"><a href="options-permalink.php" class="button button-small" target="_blank">Change Permalinks</a></span>
+                             </div>
+
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+             <!-- /.col-->
+         </div>
+         <!-- ./row -->
+     </section>
+    <!-- /.content -->
+</div>

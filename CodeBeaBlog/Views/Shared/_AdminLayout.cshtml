@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 2 | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css"> <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+   
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+   
+    
+</head>
+  
+
+ @*layout-boxed*@
+
+<!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
+<body class="hold-transition skin-blue sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        @Html.Partial("_AdminHeaderPartial")
+
+
+
+        @Html.Partial("_AdminLeftSidePartial")
+
+
+        @RenderBody()
+
+
+        @Html.Partial("_AdminFooterPartial")
+
+
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- jQuery 3 -->
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+   
+                @Scripts.Render("~/adem")
+                <script src="~/Scripts/Factories/PostFactory.js"></script>
+            <script src="~/Scripts/Controllers/PostsController.js"></script>
+        <script src="~/Scripts/codeBlogMainApp.js"></script>
+    @*<script src="~/Scripts/Contollers/LandingPageController.js"></script>*@
+     @*<script src="~/Admin/bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="~/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/Admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/Admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="~/Admin/bower_components/ckeditor/ckeditor.js"></script>
+        <script src="~/Admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+        <script src="~/Admin/dist/js/adminlte.min.js"></script>
+        <script src="~/Admin/dist/js/pages/dashboard.js"></script>
+        <script src="~/Admin/dist/js/demo.js"></script>*@
+
+
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1')
+            //bootstrap WYSIHTML5 - text editor
+            //$('.textarea').wysihtml5()
+        })
+    </script>
+</body>
+   
+
+
+
+ 
+    @*<div class="container body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+ 
+</html>
+
+
