@@ -16,7 +16,10 @@
 
 
     //}
+    $scope.posts = {};
+    PostFactory.getPosts().then(function (data) { $scope.posts = data;});
 
+    console.log($scope.posts,'sssss');
 
 
     $scope.saveNewPost = function (o) {
